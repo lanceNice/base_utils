@@ -128,7 +128,7 @@ def aio_dict_tuple(req_data):
 
 
 async def do():
-    url = "https://api.yooticloud.cn/middle/company_screen/device_status"
+    url = "https://www.baidu.com/"
 
     print(await json_general_get(url))
 

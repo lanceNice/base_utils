@@ -1,8 +1,8 @@
 # -*- coding: UTF-8 -*-
 import json
-from xfutils import text_tovoice
-from xfutils import voice_totext
-from xfutils import text_tovoice_totext
+from xf_tools import text_tovoice
+from xf_tools import voice_totext
+from xf_tools import text_tovoice_totext
 import time
 
 

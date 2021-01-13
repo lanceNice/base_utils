@@ -10,15 +10,17 @@ from multiprocessing import Pool
 import time
 
 # 全局变量 返回结果
-result=''
+result = ''
+
 
 #  INPUT_FILE  输入音频的路径
 def init(INPUT_FILE):
     p = Pool(1)
-    p.apply_async(func=__change,args=(INPUT_FILE,),callback=__returnRusult)
+    p.apply_async(func=__change, args=(INPUT_FILE,), callback=__returnRusult)
     p.close()  # 关闭进程池，关闭后，p不再接收新的请求。
     p.join()
     return result
+
 
 def __change(INPUT_FILE):
     print("vtc1")
@@ -35,9 +37,9 @@ def __change(INPUT_FILE):
     print(time.time())
     url = 'http://api.xfyun.cn/v1/service/v1/iat'
 
-    api_key = '362edff2073436726fab819822a344cf' #API_KEY
+    api_key = '362edff2073436726fab819822a344cf'  # API_KEY
     param = {"engine_type": "sms16k", "aue": "raw"}
-    x_appid = '5be0fe46' # APP_ID
+    x_appid = '5be0fe46'  # APP_ID
     x_param = base64.b64encode(json.dumps(param).replace(' ', '').encode('utf-8'))  # 改('''')
     # 这是3.x的用法，因为3.x中字符都为unicode编码，而b64encode函数的参数为byte类型，
     # 所以必须先转码为utf-8的bytes
@@ -60,6 +62,4 @@ def __change(INPUT_FILE):
 # callback 执行的方法
 def __returnRusult(msg):
     global result
-    result=msg
-
-
+    result = msg
